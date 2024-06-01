@@ -3,6 +3,7 @@ import requests
 from bs4 import BeautifulSoup as bs
 import logging
 
+# from fork
 # Configure logging
 logging.basicConfig(filename='api.log', level=logging.INFO,
                     format='%(asctime)s:%(levelname)s:%(message)s')
@@ -16,6 +17,7 @@ class BookScraper:
 
     def get_total_pages(self):
         logging.info("Fetching total number of pages")
+
         try:
             r = requests.get(self.base_url)
             r.raise_for_status()
@@ -27,6 +29,7 @@ class BookScraper:
                     last_page = pages[-2].get_text(strip=True)
                     logging.info(f"Found {last_page} pages")
                     return int(last_page)
+
         except requests.RequestException as e:
             logging.error(f"Error fetching total pages: {e}")
         return 1
@@ -44,6 +47,7 @@ class BookScraper:
                 links = soup.find_all('a', class_='no-text-decoration il-textcolor-extradark il-fontweight-600')
                 for link in links:
                     self.scrape_book_details(link)
+
             except requests.RequestException as e:
                 logging.error(f"Error scraping page {page}: {e}")
 
@@ -68,6 +72,7 @@ class BookScraper:
                 trs = tbody.find_all('tr')
                 for tr in trs:
                     tds = tr.find_all('td')
+
                     if len(tds) == 2:
                         name, attribute = tds
                         table[name.get_text(strip=True)] = attribute.get_text(strip=True)
@@ -87,6 +92,7 @@ class BookScraper:
         logging.info("Data saved successfully")
 
 # Example usage
+
 base_url = 'https://libra.ibuk.pl/ksiazki'
 landing_page = 'https://libra.ibuk.pl'
 

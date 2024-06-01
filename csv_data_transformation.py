@@ -3,7 +3,7 @@ import json
 import os
 
 load_path = 'files_to_load/'
-
+# from fork
 def transform_books():
     books_frame = pd.read_csv('./raw_data/books.csv', delimiter=';',
                               usecols=['ISBN', 'Book-Title', 'Book-Author', 'Year-Of-Publication', 'Publisher', 'Image-URL-S'],
@@ -16,6 +16,7 @@ def transform_books():
         'Publisher': 'publisher',
         'Image-URL-S': 'book_image_url'
     }
+
     books_frame.rename(columns=newBooksColumnNames, inplace=True)
     books_frame.to_csv(os.path.join(load_path, 'books_data_transformation_v1.csv'), sep=';', index=False, header=True)
 
@@ -26,6 +27,7 @@ def transform_users():
 
     users_frame = users_frame.drop(columns=['Location'])
     users_frame = pd.concat([users_frame, df_location], axis=1)
+
     newUsersColumnNames = {
         'Age': 'user_age',
         0: 'user_city',
@@ -54,6 +56,7 @@ def transform_user_api_data():
     users = users_api_data.get('results', [])
     df_users = pd.json_normalize(users)
     df_users.reset_index(inplace=True)
+
     df_users = df_users.drop(columns=[
         'index', 'gender', 'email', 'phone', 'cell', 'nat', 'name.title',
         'name.first', 'name.last', 'location.street.number',
@@ -77,6 +80,7 @@ def transform_user_api_data():
 
 def transform_scrapped_books_data():
     scrapped_data = pd.read_csv("./raw_data/scrapped_book_data.csv", delimiter=';', usecols=['Title', 'Author', 'ISBN/ISSN:', 'Wydawnictwo:', 'Rok wydania:'], low_memory=False)
+
     newScrappedDataColumnNames = {
         'ISBN/ISSN:': 'book_isbn',
         'Title': 'book_title',

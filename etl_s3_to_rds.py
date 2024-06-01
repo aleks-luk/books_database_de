@@ -3,7 +3,7 @@ import pandas as pd
 from io import StringIO
 from sqlalchemy import create_engine
 import logging
-
+# from fork
 # Logging configuration
 logging.basicConfig(filename='etl_s3_to_rds.log', level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
 
@@ -47,6 +47,7 @@ def load_csv_to_rds(s3_bucket, s3_key, table_name, column_mapping):
         logging.info(f'Inserting data into {table_name} table in RDS')
         df.to_sql(table_name, engine, if_exists='append', index=False)
         logging.info(f'Successfully inserted data into {table_name} table in RDS')
+
     except Exception as e:
         logging.error(f'Error inserting data into {table_name} table in RDS: {e}')
 

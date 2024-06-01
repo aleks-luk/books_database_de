@@ -1,7 +1,7 @@
 import boto3
 import logging
 import os
-
+# from fork
 # Konfiguracja logowania
 logging.basicConfig(filename='upload_csv_to_s3.log', level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
 

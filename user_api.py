@@ -1,12 +1,13 @@
 import requests
 import logging
 import json
-
+# from fork
 logging.basicConfig(filename='api.log', level=logging.INFO,
                     format='%(asctime)s:%(levelname)s:%(message)s')
 load_path = 'raw_data/'
 
 class UserAPI:
+
     def __init__(self, n_users=10, v_nationalities=['us']):
         self.users_url = 'https://randomuser.me/api/'
         self.params = {'nat': v_nationalities, 'seed': 'foobar', 'results': n_users, 'format': 'json'}
@@ -31,6 +32,7 @@ class UserAPI:
             logging.info(f'Saved data to {file_path}')
         else:
             logging.warning(f'No data to save for {filename}')
+
 
 if __name__ == '__main__':
     user_api = UserAPI()
