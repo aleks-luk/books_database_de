@@ -1,0 +1,76 @@
+2024-06-01 17:54:03,304:INFO:NumExpr defaulting to 8 threads.
+2024-06-01 17:54:03,868:INFO:BookScraper initialized
+2024-06-01 17:54:03,868:INFO:Starting to scrape up to 1 pages
+2024-06-01 17:54:03,868:INFO:Fetching total number of pages
+2024-06-01 17:54:06,325:INFO:Scraping page 1 of 1: https://libra.ibuk.pl/ksiazki?_page=1
+2024-06-01 17:54:08,784:INFO:Saving data to CSV file: raw_data/scrapped_book_data.csv
+2024-06-01 17:54:08,791:INFO:Data saved successfully
+2024-06-01 17:54:11,418:INFO:Fetching users data from API: https://randomuser.me/api/
+2024-06-01 17:54:11,680:INFO:Successfully fetched users data from API
+2024-06-01 17:54:11,682:INFO:Saved data to ./raw_data/users_api_data.json
+2024-06-01 17:54:11,683:INFO:BookScraper initialized
+2024-06-01 17:54:11,683:INFO:Starting to scrape up to 1 pages
+2024-06-01 17:54:11,683:INFO:Fetching total number of pages
+2024-06-01 17:54:20,359:INFO:Scraping page 1 of 1: https://libra.ibuk.pl/ksiazki?_page=1
+2024-06-01 17:54:28,967:INFO:Saving data to CSV file: raw_data/scrapped_book_data.csv
+2024-06-01 17:54:28,969:INFO:Data saved successfully
+2024-06-01 18:01:03,365:INFO:NumExpr defaulting to 8 threads.
+2024-06-01 18:01:04,086:INFO:BookScraper initialized
+2024-06-01 18:01:04,086:INFO:Starting to scrape up to 1 pages
+2024-06-01 18:01:04,086:INFO:Fetching total number of pages
+2024-06-01 18:01:06,687:INFO:Scraping page 1 of 1: https://libra.ibuk.pl/ksiazki?_page=1
+2024-06-01 18:01:07,023:INFO:Saving data to CSV file: raw_data/scrapped_book_data.csv
+2024-06-01 18:01:07,036:INFO:Data saved successfully
+2024-06-01 18:01:11,705:INFO:Fetching users data from API: https://randomuser.me/api/
+2024-06-01 18:01:11,963:INFO:Successfully fetched users data from API
+2024-06-01 18:01:11,969:INFO:Saved data to ./raw_data/users_api_data.json
+2024-06-01 18:01:11,969:INFO:BookScraper initialized
+2024-06-01 18:01:11,969:INFO:Starting to scrape up to 1 pages
+2024-06-01 18:01:11,969:INFO:Fetching total number of pages
+2024-06-01 18:01:14,376:INFO:Scraping page 1 of 1: https://libra.ibuk.pl/ksiazki?_page=1
+2024-06-01 18:01:16,833:INFO:Saving data to CSV file: raw_data/scrapped_book_data.csv
+2024-06-01 18:01:16,834:INFO:Data saved successfully
+2024-06-01 18:02:57,722:INFO:NumExpr defaulting to 8 threads.
+2024-06-01 18:02:58,307:INFO:BookScraper initialized
+2024-06-01 18:02:58,307:INFO:Starting to scrape up to 1 pages
+2024-06-01 18:02:58,307:INFO:Fetching total number of pages
+2024-06-01 18:03:00,871:INFO:Scraping page 1 of 1: https://libra.ibuk.pl/ksiazki?_page=1
+2024-06-01 18:03:03,301:INFO:Saving data to CSV file: raw_data/scrapped_book_data.csv
+2024-06-01 18:03:03,309:INFO:Data saved successfully
+2024-06-01 18:03:03,875:INFO:Fetching users data from API: https://randomuser.me/api/
+2024-06-01 18:03:04,148:INFO:Successfully fetched users data from API
+2024-06-01 18:03:04,153:INFO:Saved data to ./raw_data/users_api_data.json
+2024-06-01 18:03:04,153:INFO:BookScraper initialized
+2024-06-01 18:03:04,153:INFO:Starting to scrape up to 1 pages
+2024-06-01 18:03:04,153:INFO:Fetching total number of pages
+2024-06-01 18:03:06,597:INFO:Scraping page 1 of 1: https://libra.ibuk.pl/ksiazki?_page=1
+2024-06-01 18:03:09,006:INFO:Saving data to CSV file: raw_data/scrapped_book_data.csv
+2024-06-01 18:03:09,007:INFO:Data saved successfully
+2024-06-01 18:06:23,054:INFO:BookScraper initialized
+2024-06-01 18:06:23,055:INFO:Starting to scrape up to 1 pages
+2024-06-01 18:06:23,055:INFO:Fetching total number of pages
+2024-06-01 18:06:25,529:INFO:Scraping page 1 of 1: https://libra.ibuk.pl/ksiazki?_page=1
+2024-06-01 18:06:27,895:INFO:Saving data to CSV file: raw_data/scrapped_book_data.csv
+2024-06-01 18:06:27,912:INFO:Data saved successfully
+2024-06-01 18:06:49,357:INFO:BookScraper initialized
+2024-06-01 18:06:49,357:INFO:Starting to scrape up to 1 pages
+2024-06-01 18:06:49,357:INFO:Fetching total number of pages
+2024-06-01 18:06:51,837:INFO:Scraping page 1 of 1: https://libra.ibuk.pl/ksiazki?_page=1
+2024-06-01 18:06:54,279:INFO:Saving data to CSV file: raw_data/scrapped_book_data.csv
+2024-06-01 18:06:54,293:INFO:Data saved successfully
+2024-06-01 18:19:38,394:INFO:NumExpr defaulting to 8 threads.
+2024-06-01 18:19:38,938:INFO:BookScraper initialized
+2024-06-01 18:19:38,939:INFO:Starting to scrape up to 1 pages
+2024-06-01 18:19:38,939:INFO:Fetching total number of pages
+2024-06-01 18:19:41,388:INFO:Scraping page 1 of 1: https://libra.ibuk.pl/ksiazki?_page=1
+2024-06-01 18:19:43,957:INFO:Saving data to CSV file: raw_data/scrapped_book_data.csv
+2024-06-01 18:19:43,969:INFO:Data saved successfully
+2024-06-01 18:19:48,784:INFO:Fetching users data from API: https://randomuser.me/api/
+2024-06-01 18:19:49,025:INFO:Successfully fetched users data from API
+2024-06-01 18:19:49,029:INFO:Saved data to ./raw_data/users_api_data.json
+2024-06-01 18:19:49,030:INFO:BookScraper initialized
+2024-06-01 18:19:49,030:INFO:Starting to scrape up to 1 pages
+2024-06-01 18:19:49,030:INFO:Fetching total number of pages
+2024-06-01 18:19:51,528:INFO:Scraping page 1 of 1: https://libra.ibuk.pl/ksiazki?_page=1
+2024-06-01 18:19:53,986:INFO:Saving data to CSV file: raw_data/scrapped_book_data.csv
+2024-06-01 18:19:53,987:INFO:Data saved successfully
