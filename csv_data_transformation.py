@@ -4,6 +4,8 @@ import os
 
 load_path = 'files_to_load/'
 # from fork
+
+# You should almost always use parameters in functions. On multiple scrapes you probably don't want to overwrite the file each time etc...
 def transform_books():
     books_frame = pd.read_csv('./raw_data/books.csv', delimiter=';',
                               usecols=['ISBN', 'Book-Title', 'Book-Author', 'Year-Of-Publication', 'Publisher', 'Image-URL-S'],
@@ -28,6 +30,7 @@ def transform_users():
     users_frame = users_frame.drop(columns=['Location'])
     users_frame = pd.concat([users_frame, df_location], axis=1)
 
+    # use_camel_case_in_python unless it is a class name
     newUsersColumnNames = {
         'Age': 'user_age',
         0: 'user_city',
@@ -43,6 +46,7 @@ def transform_users():
 
 def transform_ratings():
     ratings_frame = pd.read_csv('./raw_data/ratings.csv', usecols=['ISBN', 'Book-Rating'], delimiter=';', encoding='windows-1250', low_memory=False)
+    # use_camel_case_in_python unless it is a class name
     newRatingsColumnNames = {
         'ISBN': 'r_book_isbn',
         'Book-Rating': 'r_book_rating',
@@ -69,6 +73,7 @@ def transform_user_api_data():
         'picture.large', 'picture.medium', 'picture.thumbnail'
     ])
 
+    # use_camel_case_in_python unless it is a class name
     newUsersApiDataColumnNames = {
         'location.city': 'user_city',
         'location.country': 'user_country',
@@ -80,7 +85,7 @@ def transform_user_api_data():
 
 def transform_scrapped_books_data():
     scrapped_data = pd.read_csv("./raw_data/scrapped_book_data.csv", delimiter=';', usecols=['Title', 'Author', 'ISBN/ISSN:', 'Wydawnictwo:', 'Rok wydania:'], low_memory=False)
-
+    # use_camel_case_in_python unless it is a class name
     newScrappedDataColumnNames = {
         'ISBN/ISSN:': 'book_isbn',
         'Title': 'book_title',

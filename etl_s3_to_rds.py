@@ -8,7 +8,12 @@ import logging
 logging.basicConfig(filename='etl_s3_to_rds.log', level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
 
 # AWS and RDS configuration
+# bucket name should be fetched from os.environ['BUCKET_NAME']
+# constant values should always be UPPER_CASE
 s3_bucket_name = '*'
+
+
+# files names should be dynamic
 s3_files = [
     'books_data_transformation_v1.csv',
     'users_data_transformation_v1.csv',
@@ -16,6 +21,8 @@ s3_files = [
     'user_api_data_transformation_v1.csv',
     'scrapped_books_data_transformation_v1.csv'
 ]
+
+# rds creds should be fetched from os.environ[cred_name]
 rds_host = '*'
 rds_port = '*'
 rds_dbname = '*'
@@ -23,9 +30,11 @@ rds_user = '*'
 rds_password = '*'
 
 # S3 client
+# better move it to inner scope of the methods :)
 s3_client = boto3.client('s3')
 
 # Create SQLAlchemy engine
+# better move it to inner scope of the methods :)
 engine = create_engine(f'mysql://{rds_user}:{rds_password}@{rds_host}:{rds_port}/{rds_dbname}')
 
 def load_csv_to_rds(s3_bucket, s3_key, table_name, column_mapping):
@@ -45,6 +54,10 @@ def load_csv_to_rds(s3_bucket, s3_key, table_name, column_mapping):
 
         # Inserting data into RDS
         logging.info(f'Inserting data into {table_name} table in RDS')
+
+        # generally there might be more efficient way to load the data into the RDS
+        # this would be a way to go with bigger files (>1GB)
+        # https://dev.mysql.com/doc/refman/8.4/en/load-data.html
         df.to_sql(table_name, engine, if_exists='append', index=False)
         logging.info(f'Successfully inserted data into {table_name} table in RDS')
 

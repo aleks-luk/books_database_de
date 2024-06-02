@@ -16,6 +16,8 @@ class BookScraper:
         logging.info("BookScraper initialized")
 
     def get_total_pages(self):
+        # Try except not needed but generally a well written function
+
         logging.info("Fetching total number of pages")
 
         try:
@@ -36,6 +38,7 @@ class BookScraper:
 
     def scrape(self, max_pages=1):
         logging.info(f"Starting to scrape up to {max_pages} pages")
+
         total_pages = min(self.get_total_pages(), max_pages)
         for page in range(1, total_pages + 1):
             url = f'{self.base_url}?_page={page}'
@@ -63,6 +66,7 @@ class BookScraper:
             author = web2.find('span', class_='il-font-size il-textcolor-light-secondary')
 
             table = {
+                # why N/A use None instead the almost every db has support to point it to null
                 'Title': title.get_text(strip=True) if title else 'N/A',
                 'Author': author.get_text(strip=True) if author else 'N/A'
             }
@@ -90,6 +94,11 @@ class BookScraper:
         logging.info(f"Saving data to CSV file: {filename}")
         df.to_csv(filename, sep=';', index=False, header=True)
         logging.info("Data saved successfully")
+
+
+# Put it under `if __name__ == '__main__':`
+# now each time you import from this file it will be executed
+
 
 # Example usage
 
