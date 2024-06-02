@@ -1,7 +1,7 @@
 import boto3
 import logging
 import os
-
+# from fork
 # Konfiguracja logowania
 logging.basicConfig(filename='upload_csv_to_s3.log', level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
 
@@ -16,6 +16,7 @@ csv_files = [
 ]
 csv_files_path = 'files_to_load/'
 
+# move to inner scope
 # Tworzenie klienta S3
 s3_client = boto3.client('s3')
 

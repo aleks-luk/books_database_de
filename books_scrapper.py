@@ -3,6 +3,7 @@ import requests
 from bs4 import BeautifulSoup as bs
 import logging
 
+# from fork
 # Configure logging
 logging.basicConfig(filename='api.log', level=logging.INFO,
                     format='%(asctime)s:%(levelname)s:%(message)s')
@@ -15,7 +16,10 @@ class BookScraper:
         logging.info("BookScraper initialized")
 
     def get_total_pages(self):
+        # Try except not needed but generally a well written function
+
         logging.info("Fetching total number of pages")
+
         try:
             r = requests.get(self.base_url)
             r.raise_for_status()
@@ -27,12 +31,14 @@ class BookScraper:
                     last_page = pages[-2].get_text(strip=True)
                     logging.info(f"Found {last_page} pages")
                     return int(last_page)
+
         except requests.RequestException as e:
             logging.error(f"Error fetching total pages: {e}")
         return 1
 
     def scrape(self, max_pages=1):
         logging.info(f"Starting to scrape up to {max_pages} pages")
+
         total_pages = min(self.get_total_pages(), max_pages)
         for page in range(1, total_pages + 1):
             url = f'{self.base_url}?_page={page}'
@@ -44,6 +50,7 @@ class BookScraper:
                 links = soup.find_all('a', class_='no-text-decoration il-textcolor-extradark il-fontweight-600')
                 for link in links:
                     self.scrape_book_details(link)
+
             except requests.RequestException as e:
                 logging.error(f"Error scraping page {page}: {e}")
 
@@ -59,6 +66,7 @@ class BookScraper:
             author = web2.find('span', class_='il-font-size il-textcolor-light-secondary')
 
             table = {
+                # why N/A use None instead the almost every db has support to point it to null
                 'Title': title.get_text(strip=True) if title else 'N/A',
                 'Author': author.get_text(strip=True) if author else 'N/A'
             }
@@ -68,6 +76,7 @@ class BookScraper:
                 trs = tbody.find_all('tr')
                 for tr in trs:
                     tds = tr.find_all('td')
+
                     if len(tds) == 2:
                         name, attribute = tds
                         table[name.get_text(strip=True)] = attribute.get_text(strip=True)
@@ -86,7 +95,13 @@ class BookScraper:
         df.to_csv(filename, sep=';', index=False, header=True)
         logging.info("Data saved successfully")
 
+
+# Put it under `if __name__ == '__main__':`
+# now each time you import from this file it will be executed
+
+
 # Example usage
+
 base_url = 'https://libra.ibuk.pl/ksiazki'
 landing_page = 'https://libra.ibuk.pl'
 
